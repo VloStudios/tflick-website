@@ -1,8 +1,17 @@
 {
   "_help": "Add YouTubers to the list. 'name', 'channel' (link to their YouTube channel, leave \"\" if unknown yet) and optional 'description'.",
   "youtubers": [
-    { "name": "MloPO", "channel": "" },
-    { "name": "Tejeshhamo", "channel": "" },
-    { "name": "theOGmobileuser", "channel": "" }
+    {
+      "name": "MloPO",
+      "channel": "https://www.youtube.com/channel/UCHZFqyIB2eyGjJNNTgLotOg"
+    },
+    {
+      "name": "Tejeshhamo",
+      "channel": "https://www.youtube.com/channel/UCt2AuQMd69rNYi0LM7_VLSQ"
+    },
+    {
+      "name": "theOGmobileuser",
+      "channel": "https://www.youtube.com/channel/UCLRf5h4VxIWRBuc5Ybn9LEA"
+    }
   ]
 }
