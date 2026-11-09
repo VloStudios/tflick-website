@@ -86,8 +86,14 @@ const pages = {
 
   async about(site) {
     $("#desc").textContent = site.about.description;
-    const rules = $("#rules");
-    site.about.rules.forEach(r => rules.append(el("li", {}, r)));
+    const rd = await load("data/rules.json");
+    const root = $("#rules");
+    rd.sections.forEach(sec => root.append(el("section", { class: "block" },
+      el("h2", {}, sec.title),
+      el("ol", { class: "rules" }, sec.rules.map(r =>
+        el("li", {}, el("strong", {}, r.title), el("span", {}, r.text)))))));
+    if (rd.notice) root.append(el("p", { class: "notice" }, rd.notice));
+    if (rd.penalties) root.append(el("p", { class: "muted" }, rd.penalties));
     const links = $("#links");
     site.links.forEach(l => links.append(
       el("a", { class: "card link", href: safeUrl(l.url), target: "_blank", rel: "noopener noreferrer" },

@@ -1,0 +1,77 @@
+{
+  "_help": "Edit titles/text freely. Numbering is automatic. Add or remove items in any section.",
+  "sections": [
+    {
+      "title": "Minecraft Server Rules",
+      "rules": [
+        {
+          "title": "Play fairly",
+          "text": "Using cheats, hacked clients, macros, autoclickers, scripts, or any other unfair advantage is not allowed."
+        },
+        {
+          "title": "Respect Everyone",
+          "text": "Harassment, toxicity, discrimination, or intentionally provoking others is prohibited."
+        },
+        {
+          "title": "No Exploiting",
+          "text": "Abuse of bugs, glitches, or unintended mechanics is not allowed. Report them to staff instead."
+        },
+        {
+          "title": "No Impersonation",
+          "text": "Pretending to be a staff member, content creator, or another player is prohibited."
+        },
+        {
+          "title": "Chat Responsibly",
+          "text": "Spam, excessive caps, command flooding, or disruptive behavior in chat is not allowed."
+        },
+        {
+          "title": "Listen to Staff",
+          "text": "Follow staff instructions. If you disagree with a decision, contact staff respectfully instead of arguing publicly."
+        },
+        {
+          "title": "Use Common Sense",
+          "text": "If an action gives you an unfair advantage or negatively affects others, don't do it."
+        }
+      ]
+    },
+    {
+      "title": "Discord Server Rules",
+      "rules": [
+        {
+          "title": "Be Respectful",
+          "text": "Treat all members with respect. Harassment, hate speech, and personal attacks are not allowed."
+        },
+        {
+          "title": "No Spam",
+          "text": "Avoid repeated messages, excessive emojis, unnecessary pings, or other disruptive behavior."
+        },
+        {
+          "title": "No Advertising",
+          "text": "Sharing server invites, advertisements, or self-promotion without permission is not allowed."
+        },
+        {
+          "title": "Keep It Appropriate",
+          "text": "NSFW, graphic, or otherwise inappropriate content is prohibited."
+        },
+        {
+          "title": "No Impersonation",
+          "text": "Do not pretend to be another member, staff member, or public figure."
+        },
+        {
+          "title": "Stay On Topic",
+          "text": "Use channels for their intended purpose and avoid derailing conversations."
+        },
+        {
+          "title": "Follow Staff Instructions",
+          "text": "Staff decisions should be respected. Appeals and concerns can be discussed through the proper channels."
+        },
+        {
+          "title": "No Scams or Malicious Content",
+          "text": "Sending harmful links, scam attempts, or misleading content will result in immediate action."
+        }
+      ]
+    }
+  ],
+  "notice": "Rules may change at any time. It's your responsibility to check this page and the Discord rules channel regularly.",
+  "penalties": "Violations of the rules might result in warnings, kicks, mutes or bans."
+}

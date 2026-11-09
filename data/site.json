@@ -7,14 +7,13 @@
     "max": "1.20.6"
   },
   "about": {
-    "description": "TeamFlick is a Minecraft bridging server. Edit this text in data/site.json.",
-    "rules": [
-      "Be respectful to other players and staff.",
-      "No cheating or unfair advantages.",
-      "Have fun and bridge on!"
-    ]
+    "description": "TeamFlick is a Minecraft bridging server. Edit this text in data/site.json."
   },
   "links": [
-    { "label": "Discord", "url": "https://discord.gg/CHANGE-ME", "description": "Join our community" }
+    {
+      "label": "Discord",
+      "url": "https://discord.gg/CHANGE-ME",
+      "description": "Join our community"
+    }
   ]
 }
