@@ -139,3 +139,24 @@ section.block + .notice, .notice { margin-bottom: 24px; }
 .post h2 { color: var(--yellow); font-size: 1.25rem; margin-bottom: 8px; }
 .post p { margin: 0 0 10px; }
 nav a { padding: 6px 9px; font-size: .95rem; } nav { gap: 0 2px; } #nav { gap: 10px 20px; }
+
+/* backdrop blur / glass */
+:root { --panel: rgba(21, 36, 26, .62); --glass: blur(12px) saturate(140%); }
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(rgba(168,230,46,.22), rgba(168,230,46,.22)) 8% 14% / 150px 150px no-repeat,
+    linear-gradient(rgba(63,169,245,.26), rgba(63,169,245,.26)) 88% 22% / 210px 210px no-repeat,
+    linear-gradient(rgba(244,224,58,.18), rgba(244,224,58,.18)) 70% 78% / 180px 180px no-repeat,
+    linear-gradient(rgba(63,169,245,.20), rgba(63,169,245,.20)) 14% 85% / 240px 240px no-repeat,
+    radial-gradient(520px 520px at 12% 18%, rgba(168,230,46,.20), transparent 70%),
+    radial-gradient(600px 600px at 90% 30%, rgba(63,169,245,.22), transparent 70%),
+    radial-gradient(520px 520px at 70% 90%, rgba(244,224,58,.14), transparent 70%);
+}
+#nav { position: sticky; top: 0; z-index: 10; background: rgba(21, 36, 26, .55); -webkit-backdrop-filter: var(--glass); backdrop-filter: var(--glass); }
+.card, .stat, .rcard, .post, details.qa, ol.rules li, ol.steps li, .notice, .ip {
+  -webkit-backdrop-filter: var(--glass); backdrop-filter: var(--glass);
+}
+.ip { background: rgba(11, 18, 12, .6); }
+.hero-logo { backdrop-filter: none; }
+#footer { background: rgba(21, 36, 26, .5); -webkit-backdrop-filter: var(--glass); backdrop-filter: var(--glass); }
