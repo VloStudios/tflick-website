@@ -30,7 +30,10 @@ function chrome(site) {
     el("nav", {}, PAGES.map(([h, l]) =>
       el("a", { href: h, class: h === cur ? "active" : "" }, l)))
   );
-  $("#footer").textContent = `© ${new Date().getFullYear()} ${site.name} · ${site.ip}`;
+  const f = $("#footer");
+  f.append(`© ${new Date().getFullYear()} ${site.name} · ${site.ip}`);
+  site.links.filter(l => safeUrl(l.url) !== "#").forEach(l =>
+    f.append(" · ", el("a", { href: safeUrl(l.url), target: "_blank", rel: "noopener noreferrer" }, l.label)));
 }
 
 async function copyText(text) {
@@ -55,6 +58,23 @@ function copyBtn(text, extra) {
   return b;
 }
 
+// Live player count from the public mcsrvstat.us API. Fails silently (box stays hidden).
+async function liveStatus(ip) {
+  try {
+    const r = await fetch(`https://api.mcsrvstat.us/3/${encodeURIComponent(ip)}`);
+    const d = await r.json();
+    const box = $("#status"), val = $("#status-val");
+    box.hidden = false;
+    if (d.online) {
+      val.textContent = `${d.players?.online ?? 0} online`;
+      val.classList.add("on");
+    } else {
+      val.textContent = "Offline";
+      val.classList.add("off");
+    }
+  } catch { /* ignore */ }
+}
+
 const pages = {
   async home(site) {
     $("#ip").textContent = site.ip;
@@ -62,6 +82,15 @@ const pages = {
     $("#copy").append(copyBtn(site.ip, $("#ip")));
     const { min, max } = site.versions;
     $("#versions").textContent = min === max ? min : `${min} – ${max}`;
+
+    const dc = site.links.find(l => /discord/i.test(l.label));
+    if (dc) $("#cta").append(el("a", { class: "btn btn-alt", href: safeUrl(dc.url), target: "_blank", rel: "noopener noreferrer" }, "Join our Discord"));
+
+    if (site.howToJoin?.length) {
+      $("#join-sec").hidden = false;
+      site.howToJoin.forEach(t => $("#join").append(el("li", {}, t.replaceAll("{ip}", site.ip))));
+    }
+    liveStatus(site.ip);
   },
 
   async team() {

@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Home</title>
 <meta name="description" content="TeamFlick – a Minecraft bridging server. IP: mc.teamflick.tech">
+<meta name="theme-color" content="#0d1710">
+<meta property="og:title" content="TeamFlick">
+<meta property="og:description" content="A Minecraft bridging server. IP: mc.teamflick.tech">
+<meta property="og:image" content="assets/logo.png">
 <link rel="icon" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -16,8 +20,16 @@
   <h1>Welcome to TeamFlick</h1>
   <p class="muted" id="tagline"></p>
   <div class="ip-row"><div class="ip" id="ip">…</div><span id="copy" style="display:flex"></span></div>
-  <div class="stat"><div class="label">Supported versions</div><div class="value" id="versions">…</div></div>
+  <div class="stats">
+    <div class="stat"><div class="label">Supported versions</div><div class="value" id="versions">…</div></div>
+    <div class="stat" id="status" hidden><div class="label">Server status</div><div class="value" id="status-val">…</div></div>
+  </div>
+  <div class="cta" id="cta"></div>
 </div>
+<section class="block" id="join-sec" hidden>
+  <h2>How to join</h2>
+  <ol class="steps" id="join"></ol>
+</section>
 </main>
 <footer id="footer"></footer>
 <script src="assets/app.js"></script>

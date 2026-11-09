@@ -7,7 +7,7 @@
     "max": "1.20.6"
   },
   "about": {
-    "description": "TeamFlick is a Minecraft bridging server. Edit this text in data/site.json."
+    "description": "TeamFlick is a Minecraft bridging server. Join the Discord for updates, events and to meet the community."
   },
   "links": [
     {
@@ -15,5 +15,11 @@
       "url": "https://discord.gg/ztxXXRcdDs",
       "description": "Join our community"
     }
+  ],
+  "howToJoin": [
+    "Open Minecraft (a supported version) and go to Multiplayer.",
+    "Click Add Server.",
+    "Enter {ip} as the server address and save.",
+    "Join and start bridging!"
   ]
 }
