@@ -17,9 +17,10 @@
     { "name": "JrSup",   "color": "#86efac" }
   ],
   "members": [
-    { "name": "ExampleOwner", "rank": "Admin" },
-    { "name": "ExampleManager", "rank": "Manager" },
-    { "name": "ExampleDev", "rank": "Dev" },
+    { "name": "Ori_25", "rank": "Admin" },
+    { "name": "lovelydao", "rank": "Admin" },
+    { "name": "VloTheDev", "rank": "Manager" },
+    { "name": "HeroMineMC", "rank": "SrDev" },
     { "name": "ExampleMod", "rank": "Mod" },
     { "name": "ExampleHelper", "rank": "JrSup" }
   ]
