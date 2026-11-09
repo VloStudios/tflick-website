@@ -33,13 +33,25 @@ function chrome(site) {
   $("#footer").textContent = `© ${new Date().getFullYear()} ${site.name} · ${site.ip}`;
 }
 
-function copyBtn(text) {
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true; } catch {}
+  // Fallback for browsers/contexts without the async clipboard API
+  const t = el("textarea", { style: "position:fixed;opacity:0" });
+  t.value = text; document.body.append(t); t.select();
+  let ok = false;
+  try { ok = document.execCommand("copy"); } catch {}
+  t.remove();
+  return ok;
+}
+
+function copyBtn(text, extra) {
   const b = el("button", { class: "btn", type: "button" }, "Copy IP");
-  b.onclick = async () => {
-    try { await navigator.clipboard.writeText(text); b.textContent = "Copied!"; }
-    catch { b.textContent = "Press Ctrl+C"; }
+  const run = async () => {
+    b.textContent = (await copyText(text)) ? "Copied!" : "Press Ctrl+C";
     setTimeout(() => (b.textContent = "Copy IP"), 1500);
   };
+  b.onclick = run;
+  if (extra) { extra.onclick = run; extra.style.cursor = "pointer"; extra.title = "Click to copy"; }
   return b;
 }
 
@@ -47,7 +59,7 @@ const pages = {
   async home(site) {
     $("#ip").textContent = site.ip;
     $("#tagline").textContent = site.tagline;
-    $("#copy").append(copyBtn(site.ip));
+    $("#copy").append(copyBtn(site.ip, $("#ip")));
     const { min, max } = site.versions;
     $("#versions").textContent = min === max ? min : `${min} – ${max}`;
   },
