@@ -18,7 +18,7 @@ const load = async f => {
 const safeUrl = u => /^(https?:|mailto:)/i.test(u) ? u : "#";
 
 const PAGES = [
-  ["index.html", "Home"], ["team.html", "Team"], ["ranks.html", "Ranks"],
+  ["index.html", "Home"], ["team.html", "Team"], ["ranks.html", "Ranks"], ["rules.html", "Rules"], ["faq.html", "FAQ"], ["apply.html", "Apply"],
   ["youtube.html", "YouTube"], ["about.html", "About & Contact"],
 ];
 
@@ -116,6 +116,50 @@ const pages = {
     }
   },
 
+  async rules() {
+    const rd = await load("data/rules.json");
+    const root = $("#rules");
+    rd.sections.forEach(sec => root.append(el("section", { class: "block" },
+      el("h2", {}, sec.title),
+      el("ol", { class: "rules" }, sec.rules.map(r =>
+        el("li", {}, el("strong", {}, r.title), el("span", {}, r.text)))))));
+    if (rd.notice) root.append(el("p", { class: "notice" }, rd.notice));
+    if (rd.penalties) root.append(el("p", { class: "muted" }, rd.penalties));
+    const links = $("#links");
+    site.links.forEach(l => links.append(
+      el("a", { class: "card link", href: safeUrl(l.url), target: "_blank", rel: "noopener noreferrer" },
+        el("strong", {}, l.label),
+        el("span", { class: "muted" }, l.description || ""))));
+  },
+
+  async faq(site) {
+    const d = await load("data/faq.json");
+    const sub = t => t.replaceAll("{ip}", site.ip).replaceAll("{min}", site.versions.min).replaceAll("{max}", site.versions.max);
+    d.faq.forEach(f => $("#faq").append(el("details", { class: "qa" },
+      el("summary", {}, sub(f.q)), el("p", {}, sub(f.a)))));
+  },
+
+  async apply() {
+    const d = await load("data/staff.json");
+    const root = $("#apply");
+    $("#intro").textContent = d.intro || "";
+    root.append(el("div", { class: d.open ? "notice open" : "notice closed" },
+      d.open ? "Applications are open." : "Applications are currently closed."));
+    if (d.general?.length) root.append(el("section", { class: "block" }, el("h2", {}, "What we look for"),
+      el("ul", {}, d.general.map(g => el("li", {}, g)))));
+    root.append(el("section", { class: "block" }, el("h2", {}, "Roles"),
+      el("div", { class: "grid" }, d.roles.map(r => el("div", { class: "card role" },
+        el("strong", {}, r.name), el("span", { class: "muted" }, r.description || ""),
+        el("ul", {}, (r.requirements || []).map(q => el("li", {}, q))))))));
+    const h = d.howToApply;
+    if (h) {
+      const sec = el("section", { class: "block" }, el("h2", {}, h.title),
+        el("ol", { class: "steps" }, h.steps.map(s => el("li", {}, s))));
+      if (h.note) sec.append(el("p", { class: "muted" }, h.note));
+      root.append(sec);
+    }
+  },
+
   async team() {
     const data = await load("data/team.json");
     const root = $("#team");
@@ -155,19 +199,6 @@ const pages = {
 
   async about(site) {
     $("#desc").textContent = site.about.description;
-    const rd = await load("data/rules.json");
-    const root = $("#rules");
-    rd.sections.forEach(sec => root.append(el("section", { class: "block" },
-      el("h2", {}, sec.title),
-      el("ol", { class: "rules" }, sec.rules.map(r =>
-        el("li", {}, el("strong", {}, r.title), el("span", {}, r.text)))))));
-    if (rd.notice) root.append(el("p", { class: "notice" }, rd.notice));
-    if (rd.penalties) root.append(el("p", { class: "muted" }, rd.penalties));
-    const links = $("#links");
-    site.links.forEach(l => links.append(
-      el("a", { class: "card link", href: safeUrl(l.url), target: "_blank", rel: "noopener noreferrer" },
-        el("strong", {}, l.label),
-        el("span", { class: "muted" }, l.description || ""))));
   },
 };
 

@@ -1,0 +1,37 @@
+{
+  "_help": "Add/edit questions. In answers, {ip}, {min} and {max} are replaced from site.json.",
+  "faq": [
+    {
+      "q": "What is the server IP?",
+      "a": "The IP is {ip}."
+    },
+    {
+      "q": "Which Minecraft versions work?",
+      "a": "You can join with any version from {min} to {max}."
+    },
+    {
+      "q": "What game modes are there?",
+      "a": "Clutches and Fastbuilder (bridging)."
+    },
+    {
+      "q": "How do I join?",
+      "a": "Open Minecraft, go to Multiplayer, click Add Server, enter {ip} and join."
+    },
+    {
+      "q": "How do I buy a rank?",
+      "a": "Check your in-game balance with /coins, open a ticket and tell an admin which rank and how long you want. See the Ranks page for prices and perks."
+    },
+    {
+      "q": "Can I buy a rank with coins from the Discord economy?",
+      "a": "No. Ranks can only be bought with in-game server coins (/coins), not with coins from the Discord economy system (/balance)."
+    },
+    {
+      "q": "What happens if I break the rules?",
+      "a": "Violations of the rules might result in warnings, kicks, mutes or bans. Rules may change at any time, so check the Rules page regularly."
+    },
+    {
+      "q": "I found a bug. What should I do?",
+      "a": "Don't abuse it. Report it to staff instead."
+    }
+  ]
+}

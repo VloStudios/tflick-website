@@ -1,0 +1,46 @@
+{
+  "_help": "Edit freely. Add roles, requirements and steps as needed. Set 'open' to false to show applications as closed.",
+  "open": true,
+  "intro": "Want to help run TeamFlick? Here's what we look for and how to apply.",
+  "general": [
+    "Be respectful and mature when dealing with players and other staff.",
+    "Know and follow all server rules.",
+    "Be active and reliable.",
+    "Follow the instructions of senior staff."
+  ],
+  "roles": [
+    {
+      "name": "Support",
+      "description": "Help players with questions and issues.",
+      "requirements": [
+        "Patient and friendly with new players",
+        "Good knowledge of the server"
+      ]
+    },
+    {
+      "name": "Moderator",
+      "description": "Keep the server fair and enforce the rules.",
+      "requirements": [
+        "Experience as Support or a strong track record in the community",
+        "Good judgement when handling rule breaks"
+      ]
+    },
+    {
+      "name": "Developer",
+      "description": "Build and maintain server features.",
+      "requirements": [
+        "Relevant development experience",
+        "Examples of previous work"
+      ]
+    }
+  ],
+  "howToApply": {
+    "title": "How to apply",
+    "steps": [
+      "Open a ticket and say which role you want.",
+      "Tell us a bit about yourself and why you'd be a good fit.",
+      "Wait for a response from the team."
+    ],
+    "note": "Requirements may change at any time. Applying doesn't guarantee a position."
+  }
+}
