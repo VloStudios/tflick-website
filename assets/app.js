@@ -25,7 +25,8 @@ const PAGES = [
 function chrome(site) {
   const cur = location.pathname.split("/").pop() || "index.html";
   $("#nav").append(
-    el("a", { class: "brand", href: "index.html" }, site.name),
+    el("a", { class: "brand", href: "index.html" },
+      el("img", { src: "assets/logo.png", alt: "", onerror: "this.remove()" }), site.name),
     el("nav", {}, PAGES.map(([h, l]) =>
       el("a", { href: h, class: h === cur ? "active" : "" }, l)))
   );
