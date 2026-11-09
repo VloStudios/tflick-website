@@ -15,8 +15,6 @@
     ]
   },
   "links": [
-    { "label": "Discord", "url": "https://discord.gg/CHANGE-ME", "description": "Join our community" },
-    { "label": "YouTube", "url": "https://youtube.com/@CHANGE-ME", "description": "Watch our videos" },
-    { "label": "Email", "url": "mailto:contact@teamflick.tech", "description": "contact@teamflick.tech" }
+    { "label": "Discord", "url": "https://discord.gg/CHANGE-ME", "description": "Join our community" }
   ]
 }
