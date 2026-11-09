@@ -18,7 +18,7 @@ const load = async f => {
 const safeUrl = u => /^(https?:|mailto:)/i.test(u) ? u : "#";
 
 const PAGES = [
-  ["index.html", "Home"], ["team.html", "Team"],
+  ["index.html", "Home"], ["team.html", "Team"], ["ranks.html", "Ranks"],
   ["youtube.html", "YouTube"], ["about.html", "About & Contact"],
 ];
 
@@ -86,11 +86,33 @@ const pages = {
     const dc = site.links.find(l => /discord/i.test(l.label));
     if (dc) $("#cta").append(el("a", { class: "btn btn-alt", href: safeUrl(dc.url), target: "_blank", rel: "noopener noreferrer" }, "Join our Discord"));
 
+    if (site.gamemodes?.length) {
+      $("#modes-sec").hidden = false;
+      site.gamemodes.forEach(m => $("#modes").append(el("div", { class: "card mode" },
+        el("strong", {}, m.name), el("span", { class: "muted" }, m.description || ""))));
+    }
     if (site.howToJoin?.length) {
       $("#join-sec").hidden = false;
       site.howToJoin.forEach(t => $("#join").append(el("li", {}, t.replaceAll("{ip}", site.ip))));
     }
     liveStatus(site.ip);
+  },
+
+  async ranks() {
+    const d = await load("data/ranks.json");
+    $("#intro").textContent = d.intro || "";
+    d.ranks.forEach(r => $("#rank-cards").append(el("article", { class: "rcard", style: `--c:${r.color}` },
+      el("h2", {}, r.name),
+      el("ul", {}, r.perks.map(p => el("li", {}, p))),
+      el("table", {}, el("tbody", {}, r.prices.map(p =>
+        el("tr", {}, el("td", {}, p.duration), el("td", {}, `${p.coins} coins`))))))));
+    const b = d.howToBuy;
+    if (b) {
+      const buy = $("#buy");
+      buy.append(el("h2", {}, b.title),
+        el("ol", { class: "steps" }, b.steps.map(s => el("li", {}, s))));
+      if (b.warning) buy.append(el("p", { class: "notice" }, b.warning));
+    }
   },
 
   async team() {

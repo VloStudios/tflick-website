@@ -21,5 +21,15 @@
     "Click Add Server.",
     "Enter {ip} as the server address and save.",
     "Join and start bridging!"
+  ],
+  "gamemodes": [
+    {
+      "name": "Clutches",
+      "description": "Pick your blocks and sticks and clutch your way to victory."
+    },
+    {
+      "name": "Fastbuilder",
+      "description": "Bridging at full speed."
+    }
   ]
 }

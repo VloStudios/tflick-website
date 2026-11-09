@@ -1,0 +1,118 @@
+{
+  "_help": "Edit perks/prices freely. 'color' is the in-game rank color. Add or remove ranks, perks or price rows as needed.",
+  "intro": "Spend your hard-earned server coins on Premium, VIP or Flicker. Prices scale with the rank and how long you want it.",
+  "ranks": [
+    {
+      "name": "Premium",
+      "color": "#f5c518",
+      "perks": [
+        "2.0x coin multiplier (200 daily)",
+        "10 /joinme tokens",
+        "Premium role on Discord and Premium rank in game with gold color",
+        "Access to 3 blocks in Clutches",
+        "Access to 3 sticks in Clutches",
+        "More coming soon!"
+      ],
+      "prices": [
+        {
+          "duration": "7 Days",
+          "coins": "1,000"
+        },
+        {
+          "duration": "14 Days",
+          "coins": "1,800"
+        },
+        {
+          "duration": "30 Days",
+          "coins": "3,500"
+        },
+        {
+          "duration": "90 Days",
+          "coins": "9,000"
+        },
+        {
+          "duration": "Permanent",
+          "coins": "15,000"
+        }
+      ]
+    },
+    {
+      "name": "VIP",
+      "color": "#ff7ac8",
+      "perks": [
+        "2.5x coin multiplier (250 daily)",
+        "Infinite /joinme tokens",
+        "VIP role on Discord and VIP rank in game with pink color",
+        "Access to all blocks in Clutches",
+        "Access to all sticks in Clutches",
+        "More coming soon!"
+      ],
+      "prices": [
+        {
+          "duration": "7 Days",
+          "coins": "3,000"
+        },
+        {
+          "duration": "14 Days",
+          "coins": "5,500"
+        },
+        {
+          "duration": "30 Days",
+          "coins": "10,000"
+        },
+        {
+          "duration": "90 Days",
+          "coins": "27,000"
+        },
+        {
+          "duration": "Permanent",
+          "coins": "60,000"
+        }
+      ]
+    },
+    {
+      "name": "Flicker",
+      "color": "#ffffff",
+      "perks": [
+        "3.0x coin multiplier (300 daily)",
+        "Infinite /joinme tokens",
+        "Flicker role on Discord and Flicker rank in game with white color",
+        "Access to all blocks in Clutches",
+        "Access to all sticks in Clutches",
+        "Access to all blocks in Fastbuilder",
+        "More coming soon!"
+      ],
+      "prices": [
+        {
+          "duration": "7 Days",
+          "coins": "7,000"
+        },
+        {
+          "duration": "14 Days",
+          "coins": "13,000"
+        },
+        {
+          "duration": "30 Days",
+          "coins": "25,000"
+        },
+        {
+          "duration": "90 Days",
+          "coins": "70,000"
+        },
+        {
+          "duration": "Permanent",
+          "coins": "100,000"
+        }
+      ]
+    }
+  ],
+  "howToBuy": {
+    "title": "How to buy",
+    "steps": [
+      "Check your balance in-game to make sure you have enough coins (/coins).",
+      "Open a ticket on our Discord and wait for an admin to help you.",
+      "State both the rank and the duration you want to buy."
+    ],
+    "warning": "You cannot buy a rank with coins from our Discord economy system (/balance)."
+  }
+}
