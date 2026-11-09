@@ -163,10 +163,23 @@ const pages = {
     posts.forEach(p => {
       const dt = new Date(p.date + "T00:00:00");
       const when = isNaN(dt) ? p.date : dt.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
-      root.append(el("article", { class: "post" },
+      const body = String(p.body || "");
+      const art = el("article", { class: "post", tabindex: "0", title: "Click for options" },
         el("div", { class: "meta" }, p.tag ? el("span", { class: "tag" }, p.tag) : "", el("time", {}, when)),
         el("h2", {}, p.title),
-        String(p.body || "").split(/\n{2,}/).map(t => el("p", {}, t))));
+        body.split(/\n{2,}/).map(t => el("p", {}, t)));
+      const btn = el("button", { class: "btn post-copy", type: "button" }, "Copy article");
+      btn.onclick = async e => {
+        e.stopPropagation();
+        const txt = `${p.title}\n${when}\n\n${body}`;
+        btn.textContent = (await copyText(txt)) ? "Copied!" : "Press Ctrl+C";
+        setTimeout(() => (btn.textContent = "Copy article"), 1500);
+      };
+      art.append(btn);
+      const toggle = () => art.classList.toggle("selected");
+      art.onclick = e => { if (!getSelection().toString()) toggle(); };
+      art.onkeydown = e => { if (e.key === "Enter" && e.target === art) toggle(); };
+      root.append(art);
     });
   },
 

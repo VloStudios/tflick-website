@@ -160,3 +160,10 @@ body::before {
 .ip { background: rgba(11, 18, 12, .6); }
 .hero-logo { backdrop-filter: none; }
 #footer { background: rgba(21, 36, 26, .5); -webkit-backdrop-filter: var(--glass); backdrop-filter: var(--glass); }
+
+/* news: click to reveal copy button */
+.post { cursor: pointer; transition: border-color .15s; }
+.post:hover, .post:focus-visible { border-left-color: var(--lime); outline: none; }
+.post.selected { border-left-color: var(--yellow); }
+.post .post-copy { display: none; margin-top: 6px; padding: 8px 16px; font-size: .85rem; }
+.post.selected .post-copy { display: inline-block; }
