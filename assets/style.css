@@ -119,3 +119,4 @@ ol.steps li::before { content: counter(s); display: block; font: 700 1.5rem var(
 .mode { flex-direction: column; gap: 4px; border-left: 6px solid var(--lime); }
 .mode strong { font: 700 1.15rem var(--pixel); color: var(--yellow); }
 #modes-sec { margin-top: 48px; }
+#footer .fine { margin-top: 6px; font-size: .8rem; opacity: .8; }

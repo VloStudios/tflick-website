@@ -34,6 +34,7 @@ function chrome(site) {
   f.append(`© ${new Date().getFullYear()} ${site.name}. All Rights Reserved. · ${site.ip}`);
   site.links.filter(l => safeUrl(l.url) !== "#").forEach(l =>
     f.append(" · ", el("a", { href: safeUrl(l.url), target: "_blank", rel: "noopener noreferrer" }, l.label)));
+  f.append(el("div", { class: "fine" }, "Not an official Minecraft service. Not affiliated with Mojang or Microsoft."));
 }
 
 async function copyText(text) {
