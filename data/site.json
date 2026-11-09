@@ -3,8 +3,8 @@
   "tagline": "A bridging Minecraft server",
   "ip": "mc.teamflick.tech",
   "versions": {
-    "min": "TBD",
-    "max": "TBD"
+    "min": "1.8.8",
+    "max": "1.20.6"
   },
   "about": {
     "description": "TeamFlick is a Minecraft bridging server. Edit this text in data/site.json.",
