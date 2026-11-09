@@ -125,11 +125,6 @@ const pages = {
         el("li", {}, el("strong", {}, r.title), el("span", {}, r.text)))))));
     if (rd.notice) root.append(el("p", { class: "notice" }, rd.notice));
     if (rd.penalties) root.append(el("p", { class: "muted" }, rd.penalties));
-    const links = $("#links");
-    site.links.forEach(l => links.append(
-      el("a", { class: "card link", href: safeUrl(l.url), target: "_blank", rel: "noopener noreferrer" },
-        el("strong", {}, l.label),
-        el("span", { class: "muted" }, l.description || ""))));
   },
 
   async faq(site) {
@@ -199,6 +194,11 @@ const pages = {
 
   async about(site) {
     $("#desc").textContent = site.about.description;
+    const links = $("#links");
+    site.links.forEach(l => links.append(
+      el("a", { class: "card link", href: safeUrl(l.url), target: "_blank", rel: "noopener noreferrer" },
+        el("strong", {}, l.label),
+        el("span", { class: "muted" }, l.description || ""))));
   },
 };
 
