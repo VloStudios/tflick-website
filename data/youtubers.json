@@ -1,6 +1,8 @@
 {
-  "_help": "Add YouTubers to the list. 'name', 'channel' (link to channel) and optional 'description'.",
+  "_help": "Add YouTubers to the list. 'name', 'channel' (link to their YouTube channel, leave \"\" if unknown yet) and optional 'description'.",
   "youtubers": [
-    { "name": "ExampleTuber", "channel": "https://youtube.com/@example", "description": "Bridging videos and more" }
+    { "name": "MloPO", "channel": "" },
+    { "name": "Tejeshhamo", "channel": "" },
+    { "name": "theOGmobileuser", "channel": "" }
   ]
 }

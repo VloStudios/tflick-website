@@ -88,12 +88,17 @@ const pages = {
     const data = await load("data/youtubers.json");
     const root = $("#yt");
     if (!data.youtubers.length) root.append(el("p", { class: "muted" }, "No YouTubers yet."));
-    data.youtubers.forEach(y => root.append(
-      el("a", { class: "card yt", href: safeUrl(y.channel), target: "_blank", rel: "noopener noreferrer" },
-        el("span", { class: "tag yttag" }, "YouTube"),
+    data.youtubers.forEach(y => {
+      const linked = safeUrl(y.channel) !== "#";
+      const attrs = linked
+        ? { class: "card yt", href: safeUrl(y.channel), target: "_blank", rel: "noopener noreferrer" }
+        : { class: "card yt" };
+      root.append(el(linked ? "a" : "div", attrs,
+        el("span", { class: "tag yttag" }, "YT"),
         el("strong", {}, y.name),
         y.description ? el("span", { class: "muted" }, y.description) : "",
-        el("span", { class: "go" }, "Visit channel →"))));
+        linked ? el("span", { class: "go" }, "Visit channel →") : el("span", { class: "muted" }, "Channel link coming soon")));
+    });
   },
 
   async about(site) {
