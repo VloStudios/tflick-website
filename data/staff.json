@@ -32,6 +32,22 @@
         "Relevant development experience",
         "Examples of previous work"
       ]
+    },
+    {
+      "name": "Builder",
+      "description": "Create maps and builds for the server.",
+      "requirements": [
+        "Examples of your previous builds",
+        "Attention to detail and a good sense of style"
+      ]
+    },
+    {
+      "name": "Tester",
+      "description": "Test new features and updates and report bugs.",
+      "requirements": [
+        "Careful and patient with testing",
+        "Able to describe bugs clearly so they can be fixed"
+      ]
     }
   ],
   "howToApply": {
