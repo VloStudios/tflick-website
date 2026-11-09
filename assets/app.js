@@ -31,7 +31,7 @@ function chrome(site) {
       el("a", { href: h, class: h === cur ? "active" : "" }, l)))
   );
   const f = $("#footer");
-  f.append(`© ${new Date().getFullYear()} ${site.name} · ${site.ip}`);
+  f.append(`© ${new Date().getFullYear()} ${site.name}. All Rights Reserved. · ${site.ip}`);
   site.links.filter(l => safeUrl(l.url) !== "#").forEach(l =>
     f.append(" · ", el("a", { href: safeUrl(l.url), target: "_blank", rel: "noopener noreferrer" }, l.label)));
 }
