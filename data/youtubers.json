@@ -1,0 +1,6 @@
+{
+  "_help": "Add YouTubers to the list. 'name', 'channel' (link to channel) and optional 'description'.",
+  "youtubers": [
+    { "name": "ExampleTuber", "channel": "https://youtube.com/@example", "description": "Bridging videos and more" }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "_help": "Add members to 'members'. 'rank' must match a name in 'ranks'. Ranks are displayed in the order listed in 'ranks' (highest first). Members within a rank are shown in the order written here.",
+  "ranks": [
+    { "name": "Admin",   "color": "#ff4d4d" },
+    { "name": "Manager", "color": "#ff7a3d" },
+    { "name": "SrDev",   "color": "#00c2a8" },
+    { "name": "Dev",     "color": "#19d3b5" },
+    { "name": "JrDev",   "color": "#5eead4" },
+    { "name": "SrCon",   "color": "#a78bfa" },
+    { "name": "Con",     "color": "#b69cfb" },
+    { "name": "JrCon",   "color": "#c8b8fc" },
+    { "name": "SrMod",   "color": "#3b82f6" },
+    { "name": "Mod",     "color": "#60a5fa" },
+    { "name": "JrMod",   "color": "#93c5fd" },
+    { "name": "SrSup",   "color": "#22c55e" },
+    { "name": "Sup",     "color": "#4ade80" },
+    { "name": "JrSup",   "color": "#86efac" }
+  ],
+  "members": [
+    { "name": "ExampleOwner", "rank": "Admin" },
+    { "name": "ExampleManager", "rank": "Manager" },
+    { "name": "ExampleDev", "rank": "Dev" },
+    { "name": "ExampleMod", "rank": "Mod" },
+    { "name": "ExampleHelper", "rank": "JrSup" }
+  ]
+}

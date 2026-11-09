@@ -1,0 +1,22 @@
+{
+  "name": "TeamFlick",
+  "tagline": "A bridging Minecraft server",
+  "ip": "mc.teamflick.tech",
+  "versions": {
+    "min": "TBD",
+    "max": "TBD"
+  },
+  "about": {
+    "description": "TeamFlick is a Minecraft bridging server. Edit this text in data/site.json.",
+    "rules": [
+      "Be respectful to other players and staff.",
+      "No cheating or unfair advantages.",
+      "Have fun and bridge on!"
+    ]
+  },
+  "links": [
+    { "label": "Discord", "url": "https://discord.gg/CHANGE-ME", "description": "Join our community" },
+    { "label": "YouTube", "url": "https://youtube.com/@CHANGE-ME", "description": "Watch our videos" },
+    { "label": "Email", "url": "mailto:contact@teamflick.tech", "description": "contact@teamflick.tech" }
+  ]
+}
