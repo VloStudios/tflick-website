@@ -1,0 +1,11 @@
+{
+  "_help": "Add posts to 'posts'. Newest are shown first (sorted by date, YYYY-MM-DD). 'tag' is optional (e.g. Update, Event, Announcement). Use \\n\\n in 'body' for new paragraphs.",
+  "posts": [
+    {
+      "date": "2026-11-09",
+      "title": "The new TeamFlick website is live",
+      "tag": "Announcement",
+      "body": "Welcome to the new TeamFlick website! Find the server IP, rules, ranks, team and more all in one place.\n\nMore news and updates will be posted here."
+    }
+  ]
+}

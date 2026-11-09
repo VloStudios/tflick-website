@@ -132,3 +132,10 @@ details.qa p { margin: 0 0 14px; color: var(--muted); }
 .role strong { font: 700 1.1rem var(--pixel); color: var(--yellow); }
 .role ul { margin: 6px 0 0; font-size: .95rem; }
 section.block + .notice, .notice { margin-bottom: 24px; }
+
+/* news */
+.post { background: var(--panel); border-left: 6px solid var(--blue); padding: 16px 20px; margin-bottom: 18px; }
+.post .meta { display: flex; gap: 12px; align-items: center; margin-bottom: 6px; color: var(--muted); font-size: .9rem; }
+.post h2 { color: var(--yellow); font-size: 1.25rem; margin-bottom: 8px; }
+.post p { margin: 0 0 10px; }
+nav a { padding: 6px 9px; font-size: .95rem; } nav { gap: 0 2px; } #nav { gap: 10px 20px; }

@@ -18,7 +18,7 @@ const load = async f => {
 const safeUrl = u => /^(https?:|mailto:)/i.test(u) ? u : "#";
 
 const PAGES = [
-  ["index.html", "Home"], ["team.html", "Team"], ["ranks.html", "Ranks"], ["rules.html", "Rules"], ["faq.html", "FAQ"], ["apply.html", "Apply"],
+  ["index.html", "Home"], ["news.html", "News"], ["team.html", "Team"], ["ranks.html", "Ranks"], ["rules.html", "Rules"], ["faq.html", "FAQ"], ["apply.html", "Apply"],
   ["youtube.html", "YouTube"], ["about.html", "About & Contact"],
 ];
 
@@ -153,6 +153,21 @@ const pages = {
       if (h.note) sec.append(el("p", { class: "muted" }, h.note));
       root.append(sec);
     }
+  },
+
+  async news() {
+    const d = await load("data/news.json");
+    const root = $("#news");
+    const posts = [...d.posts].sort((a, b) => String(b.date).localeCompare(String(a.date)));
+    if (!posts.length) root.append(el("p", { class: "muted" }, "No news yet."));
+    posts.forEach(p => {
+      const dt = new Date(p.date + "T00:00:00");
+      const when = isNaN(dt) ? p.date : dt.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+      root.append(el("article", { class: "post" },
+        el("div", { class: "meta" }, p.tag ? el("span", { class: "tag" }, p.tag) : "", el("time", {}, when)),
+        el("h2", {}, p.title),
+        String(p.body || "").split(/\n{2,}/).map(t => el("p", {}, t))));
+    });
   },
 
   async team() {
