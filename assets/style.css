@@ -167,3 +167,6 @@ body::before {
 .post.selected { border-left-color: var(--yellow); }
 .post .post-copy { display: none; margin-top: 6px; padding: 8px 16px; font-size: .85rem; }
 .post.selected .post-copy { display: inline-block; }
+
+/* navbar: mostly solid so scrolled content doesn't smear through */
+#nav { background: rgba(13, 23, 16, .86); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
