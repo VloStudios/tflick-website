@@ -27,9 +27,16 @@ function chrome(site) {
   $("#nav").append(
     el("a", { class: "brand", href: "index.html" },
       el("img", { src: "assets/logo.png", alt: "", onerror: "this.remove()" }), site.name),
-    el("nav", {}, PAGES.map(([h, l]) =>
+    el("button", { class: "nav-toggle", type: "button", "aria-label": "Menu", "aria-expanded": "false" }, "☰"),
+    el("nav", { id: "menu" }, PAGES.map(([h, l]) =>
       el("a", { href: h, class: h === cur ? "active" : "" }, l)))
   );
+  const tg = $(".nav-toggle");
+  tg.onclick = () => {
+    const open = $("#nav").classList.toggle("open");
+    tg.setAttribute("aria-expanded", open);
+    tg.textContent = open ? "✕" : "☰";
+  };
   const f = $("#footer");
   f.append(`© ${new Date().getFullYear()} ${site.name}. All Rights Reserved. · ${site.ip}`);
   site.links.filter(l => safeUrl(l.url) !== "#").forEach(l =>

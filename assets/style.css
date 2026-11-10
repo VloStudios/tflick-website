@@ -170,3 +170,18 @@ body::before {
 
 /* navbar: mostly solid so scrolled content doesn't smear through */
 #nav { background: rgba(13, 23, 16, .86); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+
+/* nav: pixel font like the logo; dropdown on small screens */
+nav a { font-family: var(--pixel); font-weight: 700; font-size: .78rem; letter-spacing: .03em; padding: 8px 9px; }
+.nav-toggle { display: none; background: var(--ink); color: var(--yellow); border: 3px solid var(--lime); font: 700 1.2rem var(--pixel); padding: 4px 12px; cursor: pointer; }
+.nav-toggle:hover { border-color: var(--blue); color: var(--blue); }
+@media (max-width: 1080px) {
+  #nav { flex-wrap: wrap; }
+  .nav-toggle { display: block; }
+  #nav nav { display: none; width: 100%; flex-direction: column; gap: 4px; padding: 8px 0 4px; }
+  #nav.open nav { display: flex; }
+  #nav nav a { font-size: .95rem; padding: 12px 14px; background: rgba(27, 45, 32, .7); border-bottom: 0; border-left: 4px solid transparent; }
+  #nav nav a.active { border-left-color: var(--lime); }
+  #nav nav a:hover { border-left-color: var(--blue); }
+  #nav { padding: 12px 18px; }
+}
