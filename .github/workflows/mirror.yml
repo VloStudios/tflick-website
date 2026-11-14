@@ -1,0 +1,19 @@
+name: Mirror to personal repo
+on:
+  push:
+    branches: [main]
+concurrency: mirror
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    environment: mirror
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.MIRROR_DEPLOY_KEY }}
+      - run: |
+          git remote add mirror git@github.com:vlostudios/tflick-website.git
+          git push mirror HEAD:main --force
