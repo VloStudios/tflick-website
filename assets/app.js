@@ -83,13 +83,14 @@ async function liveStatus(ip) {
   } catch { /* ignore */ }
 }
 
-// Live data via our proxy (it holds the API key server-side; no key lives in this site).
+// Live staff/YouTuber data. No API key ever lives in this site.
 // Returns null on any failure so pages fall back to the local JSON files.
 async function apiGet(site, path) {
+  // Preferred: a proxy URL (see worker/). Otherwise: JSON synced from the API by the GitHub Action.
   const base = site.api?.proxy?.replace(/\/+$/, "");
-  if (!base) return null;
+  const url = base ? `${base}/${path}` : `data/api-${path}.json`;
   try {
-    const r = await fetch(`${base}/${path}`, { signal: AbortSignal.timeout(8000) });
+    const r = await fetch(url, { signal: AbortSignal.timeout(8000), cache: "no-cache" });
     if (!r.ok) return null;
     const d = await r.json();
     return d && d.success === false ? null : d;
