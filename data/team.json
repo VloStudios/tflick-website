@@ -1,35 +1,129 @@
 {
   "_help": "Add members to 'members'. 'rank' must match a name in 'ranks'. Ranks are displayed in the order listed in 'ranks' (highest first). Members within a rank are shown in the order written here.",
   "ranks": [
-    { "name": "Admin",   "color": "#ff4d4d" },
-    { "name": "Manager", "color": "#ff7a3d" },
-    { "name": "SrDev",   "color": "#00c2a8" },
-    { "name": "Dev",     "color": "#19d3b5" },
-    { "name": "JrDev",   "color": "#5eead4" },
-    { "name": "SrCon",   "color": "#a78bfa" },
-    { "name": "Con",     "color": "#b69cfb" },
-    { "name": "JrCon",   "color": "#c8b8fc" },
-    { "name": "SrMod",   "color": "#3b82f6" },
-    { "name": "Mod",     "color": "#60a5fa" },
-    { "name": "JrMod",   "color": "#93c5fd" },
-    { "name": "SrSup",   "color": "#22c55e" },
-    { "name": "Sup",     "color": "#4ade80" },
-    { "name": "JrSup",   "color": "#86efac" }
+    {
+      "name": "Admin",
+      "color": "#ff4d4d",
+      "apiKey": "admin"
+    },
+    {
+      "name": "Manager",
+      "color": "#ff7a3d",
+      "apiKey": "manager"
+    },
+    {
+      "name": "SrDev",
+      "color": "#00c2a8",
+      "apiKey": "srdeveloper"
+    },
+    {
+      "name": "Dev",
+      "color": "#19d3b5",
+      "apiKey": "developer"
+    },
+    {
+      "name": "JrDev",
+      "color": "#5eead4",
+      "apiKey": "jrdeveloper"
+    },
+    {
+      "name": "SrCon",
+      "color": "#a78bfa",
+      "apiKey": "srcontent"
+    },
+    {
+      "name": "Con",
+      "color": "#b69cfb",
+      "apiKey": "content"
+    },
+    {
+      "name": "JrCon",
+      "color": "#c8b8fc",
+      "apiKey": "jrcontent"
+    },
+    {
+      "name": "SrMod",
+      "color": "#3b82f6",
+      "apiKey": "srmoderator"
+    },
+    {
+      "name": "Mod",
+      "color": "#60a5fa",
+      "apiKey": "moderator"
+    },
+    {
+      "name": "JrMod",
+      "color": "#93c5fd",
+      "apiKey": "jrmoderator"
+    },
+    {
+      "name": "SrSup",
+      "color": "#22c55e",
+      "apiKey": "srsupporter"
+    },
+    {
+      "name": "Sup",
+      "color": "#4ade80",
+      "apiKey": "supporter"
+    },
+    {
+      "name": "JrSup",
+      "color": "#86efac",
+      "apiKey": "jrsupporter"
+    }
   ],
   "members": [
-    { "name": "Ori_25", "rank": "Admin" },
-    { "name": "lovelydao", "rank": "Admin" },
-    { "name": "VloTheDev", "rank": "Manager" },
-    { "name": "HeroMineMC", "rank": "SrDev" },
-    { "name": "ERROR_404_111", "rank": "SrCon" },
-    { "name": "NrexXD", "rank": "Con" },
-    { "name": "GooseMcGooser", "rank": "JrSup"},
-    { "name": "knockbackYT", "rank": "JrSup"},
-    { "name": "zHopeX07", "rank": "JrSup"},
-    { "name": "Itz_Mv", "rank": "Sup"},
-    { "name": "PricklyPotato", "rank": "Sup"},
-    { "name": "tellybridger467", "rank": "Sup"},
-    { "name": "SenneWYT", "rank": "Mod"}
-    
+    {
+      "name": "Ori_25",
+      "rank": "Admin"
+    },
+    {
+      "name": "lovelydao",
+      "rank": "Admin"
+    },
+    {
+      "name": "VloTheDev",
+      "rank": "Manager"
+    },
+    {
+      "name": "HeroMineMC",
+      "rank": "SrDev"
+    },
+    {
+      "name": "ERROR_404_111",
+      "rank": "SrCon"
+    },
+    {
+      "name": "NrexXD",
+      "rank": "Con"
+    },
+    {
+      "name": "GooseMcGooser",
+      "rank": "JrSup"
+    },
+    {
+      "name": "knockbackYT",
+      "rank": "JrSup"
+    },
+    {
+      "name": "zHopeX07",
+      "rank": "JrSup"
+    },
+    {
+      "name": "Itz_Mv",
+      "rank": "Sup"
+    },
+    {
+      "name": "PricklyPotato",
+      "rank": "Sup"
+    },
+    {
+      "name": "tellybridger467",
+      "rank": "Sup"
+    },
+    {
+      "name": "SenneWYT",
+      "rank": "Mod"
+    }
   ]
 }

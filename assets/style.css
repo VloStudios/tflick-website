@@ -189,3 +189,4 @@ nav a { font-family: var(--pixel); font-weight: 700; font-size: .78rem; letter-s
 /* no scrolling/bouncing past the footer */
 html { background: var(--bg); overscroll-behavior: none; }
 body { overscroll-behavior: none; min-height: 100vh; min-height: 100dvh; }
+.member img.dc { image-rendering: auto; object-fit: cover; }

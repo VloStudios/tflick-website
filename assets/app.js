@@ -83,6 +83,19 @@ async function liveStatus(ip) {
   } catch { /* ignore */ }
 }
 
+// Live data via our proxy (it holds the API key server-side; no key lives in this site).
+// Returns null on any failure so pages fall back to the local JSON files.
+async function apiGet(site, path) {
+  const base = site.api?.proxy?.replace(/\/+$/, "");
+  if (!base) return null;
+  try {
+    const r = await fetch(`${base}/${path}`, { signal: AbortSignal.timeout(8000) });
+    if (!r.ok) return null;
+    const d = await r.json();
+    return d && d.success === false ? null : d;
+  } catch { return null; }
+}
+
 const pages = {
   async home(site) {
     $("#ip").textContent = site.ip;
@@ -190,31 +203,54 @@ const pages = {
     });
   },
 
-  async team() {
+  async team(site) {
     const data = await load("data/team.json");
     const root = $("#team");
+    let members = data.members.map(m => ({ name: m.name, rank: m.rank }));
+    const api = await apiGet(site, "team");
+    if (Array.isArray(api?.members) && api.members.length) {
+      members = api.members.map(m => {
+        const r = data.ranks.find(x => x.apiKey && x.apiKey === m.rankKey);
+        return { name: m.displayName || m.username, rank: r ? r.name : m.rank, avatar: m.avatarUrl };
+      });
+    }
+    // API ranks we don't know yet are listed after the known ones, in the order they appear
+    const ranks = [...data.ranks];
+    members.forEach(m => {
+      if (!ranks.some(r => r.name === m.rank)) ranks.push({ name: m.rank, color: "#94a88f" });
+    });
     let any = false;
-    data.ranks.forEach(rank => {
-      const ms = data.members.filter(m => m.rank === rank.name);
+    ranks.forEach(rank => {
+      const ms = members.filter(m => m.rank === rank.name);
       if (!ms.length) return;
       any = true;
       root.append(el("section", { class: "rank", style: `--c:${rank.color}` },
         el("h2", {}, el("span", { class: "tag" }, rank.name)),
         el("div", { class: "grid" }, ms.map(m =>
           el("div", { class: "card member" },
-            el("img", { src: `https://mc-heads.net/avatar/${encodeURIComponent(m.name)}/64`, alt: "", loading: "lazy", width: 48, height: 48 }),
+            m.avatar
+              ? el("img", { class: "dc", src: m.avatar, alt: "", loading: "lazy", width: 48, height: 48, referrerpolicy: "no-referrer" })
+              : el("img", { src: `https://mc-heads.net/avatar/${encodeURIComponent(m.name)}/64`, alt: "", loading: "lazy", width: 48, height: 48 }),
             el("span", {}, m.name))))));
     });
     if (!any) root.append(el("p", { class: "muted" }, "No team members yet."));
-    const unknown = data.members.filter(m => !data.ranks.some(r => r.name === m.rank));
-    if (unknown.length) console.warn("Members with unknown rank:", unknown);
   },
 
-  async youtube() {
+  async youtube(site) {
     const data = await load("data/youtubers.json");
     const root = $("#yt");
-    if (!data.youtubers.length) root.append(el("p", { class: "muted" }, "No YouTubers yet."));
-    data.youtubers.forEach(y => {
+    let list = data.youtubers;
+    const api = await apiGet(site, "youtubers");
+    const arr = api && (api.youtubers || api.members || api.data);
+    if (Array.isArray(arr) && arr.length) {
+      list = arr.map(y => ({
+        name: y.displayName || y.name || y.username,
+        channel: y.channel || y.channelUrl || y.youtubeUrl || y.url || "",
+        description: y.description || "",
+      }));
+    }
+    if (!list.length) root.append(el("p", { class: "muted" }, "No YouTubers yet."));
+    list.forEach(y => {
       const linked = safeUrl(y.channel) !== "#";
       const attrs = linked
         ? { class: "card yt", href: safeUrl(y.channel), target: "_blank", rel: "noopener noreferrer" }

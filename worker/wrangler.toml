@@ -1,0 +1,9 @@
+name = "teamflick-api"
+main = "index.js"
+compatibility_date = "2024-11-01"
+
+[vars]
+UPSTREAM_BASE = "https://ori-api.vipaaxx.xyz"
+# Comma-separated list of sites allowed to call this proxy (no trailing slashes)
+ALLOWED_ORIGINS = "https://vlostudios.github.io"
+# The API key is NOT here. Set it as a secret: npx wrangler secret put TEAM_API_KEY
