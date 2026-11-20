@@ -6,6 +6,7 @@ variable (a GitHub Actions secret) and is never written to any file.
 A failed or unsuccessful response leaves the existing file untouched.
 """
 import json, os, sys, urllib.request
+from urllib.error import HTTPError
 
 BASE = os.environ.get("API_BASE", "https://ori-api.vipaaxx.xyz")
 KEY = os.environ.get("TEAM_API_KEY")
@@ -32,6 +33,10 @@ for name in ("team", "youtubers"):
         with open(f"{OUT}/api-{name}.json", "w") as f:
             json.dump(clean(d), f, indent=2, ensure_ascii=False); f.write("\n")
         print(f"{name}: ok")
+    except HTTPError as e:
+        failed += 1
+        body = e.read().decode("utf-8", errors="replace")
+        print(f"{name}: FAILED (HTTP {e.code}: {body}) - keeping previous file")
     except Exception as e:
         failed += 1
         print(f"{name}: FAILED ({type(e).__name__}: {e}) - keeping previous file")
