@@ -14,7 +14,7 @@ if not KEY:
     sys.exit("TEAM_API_KEY is not set")
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "data"
-DROP = {"id", "username", "avatarUrl"}  # private-ish / unused fields: never published
+DROP = {"id"}  # fields the website doesn't need
 
 def clean(o):
     if isinstance(o, dict): return {k: clean(v) for k, v in o.items() if k not in DROP}
