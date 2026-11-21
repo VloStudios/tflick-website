@@ -25,11 +25,15 @@
   "gamemodes": [
     {
       "name": "Clutches",
-      "description": "Pick your blocks and sticks and clutch your way to victory."
+      "description": "Pick your blocks and sticks and clutch your way to victory. Train your knockback reduction against the Reducer."
     },
     {
       "name": "Fastbuilder",
       "description": "Bridging at full speed."
+    },
+    {
+      "name": "MLG Rush",
+      "description": "Bridge across, knock your opponent into the void and break their bed. 1v1 or 4-player FFA, with trophies and leagues."
     }
   ],
   "api": {

@@ -2,6 +2,12 @@
   "_help": "Add posts to 'posts'. Newest are shown first (sorted by date, YYYY-MM-DD). 'tag' is optional (e.g. Update, Event, Announcement). Use \\n\\n in 'body' for new paragraphs.",
   "posts": [
     {
+      "date": "2026-11-21",
+      "title": "MLG Rush is here, plus the Reducer",
+      "tag": "Update",
+      "body": "MLG Rush is now live! Click the MLG Rush NPC in the lobby or use the compass. Challenge a friend by hitting them with the Challenger sword, or join the 1v1 or 4-player FFA queue. Pick a map, break beds, and climb the trophy leagues from Wood to Master. Type /quit to end your match.\n\nClutches also got the Reducer: click the Reducer NPC in the Clutches lobby to train your knockback reduction in your own private arena, with adjustable countdown, hit strength, air hits and more."
+    },
+    {
       "date": "2026-11-09",
       "title": "The new TeamFlick website is live",
       "tag": "Announcement",
