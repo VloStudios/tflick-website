@@ -42,6 +42,11 @@
       "apiKey": "jrcontent"
     },
     {
+      "name": "Builder",
+      "color": "#8b9cff",
+      "apiKey": "contenttesting"
+    },
+    {
       "name": "SrMod",
       "color": "#3b82f6",
       "apiKey": "srmoderator"
