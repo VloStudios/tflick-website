@@ -118,6 +118,20 @@ const pages = {
       site.howToJoin.forEach(t => $("#join").append(el("li", {}, t.replaceAll("{ip}", site.ip))));
     }
     liveStatus(site.ip);
+    try {
+      const n = await load("data/news.json");
+      const p = [...n.posts].sort((x, y) => String(y.date).localeCompare(String(x.date)))[0];
+      if (p) {
+        const dt = new Date(p.date + "T00:00:00");
+        const when = isNaN(dt) ? p.date : dt.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+        $("#latest").append(el("h2", {}, "Latest news"),
+          el("a", { class: "card latest", href: "news.html" },
+            el("div", { class: "meta" }, p.tag ? el("span", { class: "tag" }, p.tag) : "", el("time", {}, when)),
+            el("strong", {}, p.title),
+            el("span", { class: "go" }, "Read more →")));
+        $("#latest").hidden = false;
+      }
+    } catch { /* news is optional */ }
   },
 
   async ranks() {
@@ -279,6 +293,7 @@ const pages = {
     const site = await load("data/site.json");
     chrome(site);
     document.title = `${site.name} – ${document.title}`;
+    if (site.effects?.cursor !== false) document.body.append(el("script", { src: "assets/fx.js" }));
     await pages[document.body.dataset.page](site);
   } catch (e) {
     console.error(e);

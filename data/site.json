@@ -35,5 +35,9 @@
   "api": {
     "_help": "Set 'proxy' to your deployed proxy URL (see worker/README.md), e.g. https://teamflick-api.yourname.workers.dev. Leave empty to use the local JSON files only.",
     "proxy": ""
+  },
+  "effects": {
+    "_help": "Set 'cursor' to false to turn off the cursor sparkles.",
+    "cursor": true
   }
 }

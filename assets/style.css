@@ -190,3 +190,13 @@ nav a { font-family: var(--pixel); font-weight: 700; font-size: .78rem; letter-s
 html { background: var(--bg); overscroll-behavior: none; }
 body { overscroll-behavior: none; min-height: 100vh; min-height: 100dvh; }
 .member img.dc { image-rendering: auto; object-fit: cover; }
+
+/* hover glow on people cards, latest news */
+.member, .yt { transition: transform .15s, border-color .15s, box-shadow .15s; }
+.member:hover { transform: translateY(-3px); border-color: var(--lime); box-shadow: 0 6px 0 rgba(168, 230, 46, .35); }
+a.card.yt:hover { box-shadow: 4px 4px 0 var(--blue); }
+#latest { margin-top: 48px; }
+.latest { flex-direction: column; gap: 6px; border-left: 6px solid var(--blue); }
+.latest strong { font: 700 1.1rem var(--pixel); color: var(--yellow); }
+.latest .meta { display: flex; gap: 12px; align-items: center; color: var(--muted); font-size: .9rem; }
+@media (prefers-reduced-motion: reduce) { .member:hover { transform: none; } a.card:hover { transform: none; } }
