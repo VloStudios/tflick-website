@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "count": 3,
+  "members": [
+    {
+      "username": "noobbedap009",
+      "displayName": "MloPO",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1427232260834197558/e920aefc45685cd30374d193d95fc0ad.webp?size=256",
+      "channelUrl": "https://youtube.com/@noobbedtelly",
+      "description": "best tap speed tellyer in phone touch"
+    },
+    {
+      "username": "tejeshgamer218",
+      "displayName": "Tejeshhamo",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1028334769194401802/39a77167f9be1ab8678a602b2799eb14.webp?size=256",
+      "channelUrl": "https://www.youtube.com/@Tejesh10",
+      "description": "i love minecraft"
+    },
+    {
+      "username": "bridgerinmobile_yt",
+      "displayName": "theOGmobileuser",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1524695906404794378/20f692db322dbfae000c7a0f489c1d19.webp?size=256",
+      "channelUrl": "https://www.youtube.com/@BridgerInMobile",
+      "description": "On this channel you'll find: Minecraft related content and other kind of stuff"
+    }
+  ]
+}
