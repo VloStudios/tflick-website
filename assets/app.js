@@ -38,7 +38,9 @@ function chrome(site) {
     tg.textContent = open ? "✕" : "☰";
   };
   const f = $("#footer");
-  f.append(`© ${new Date().getFullYear()} ${site.name}. All Rights Reserved. · ${site.ip}`);
+  f.append(`© ${new Date().getFullYear()} ${site.name}. Released under the `,
+    el("a", { href: "https://github.com/VloStudios/tflick-website/blob/main/LICENSE", target: "_blank", rel: "noopener noreferrer" }, "MIT License"),
+    ` · ${site.ip}`);
   site.links.filter(l => safeUrl(l.url) !== "#").forEach(l =>
     f.append(" · ", el("a", { href: safeUrl(l.url), target: "_blank", rel: "noopener noreferrer" }, l.label)));
   f.append(el("div", { class: "fine" }, "Not an official Minecraft service. Not affiliated with Mojang or Microsoft."));
